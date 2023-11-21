@@ -181,4 +181,4 @@ DATABASES = {
     default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
     )
 }
-    DATABASES["default"]["ATOMIC_REQUESTS"] = True
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
