@@ -3,7 +3,7 @@ Brotli==1.1.0
 dj-database-url==2.1.0
 Django==3.2.23
 django-ckeditor==6.3.2
-django-cors-headers==4.3.0
+django-cors-headers==4.1.0
 django-environ-plus==0.9.0.1
 django-js-asset==2.1.0
 django-storages==1.13.1
