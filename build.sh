@@ -3,7 +3,9 @@
 set -o errexit
 
 # poetry install
-# pip install -r requirement.txt
+
+pip install -r requirements.txt
+
 npm run build
 python manage.py collectstatic --no-input
 python manage.py migrate
