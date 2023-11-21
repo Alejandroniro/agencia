@@ -186,10 +186,10 @@ if not DEBUG:
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DATABASES = {
-    'default': dj_database_url.config(
-    default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#     default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+#     )
+# }
 
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
