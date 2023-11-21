@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import environ
+import dj_database_url
 
 env = environ.Env()
 environ.Env.read_env()
@@ -19,6 +20,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS_DEV')
+
+
 
 
 # Application definition
@@ -63,6 +66,7 @@ CKEDITOR_UPLOAD_PATH = "/media/"
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -134,7 +138,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -157,7 +160,6 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WITHELIST = env.list('CORS_ORIGIN_WHITELIST_DEV')
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS_DEV')
-CORS_ALLOW_ALL_ORIGINS = True
 
 
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
@@ -166,11 +168,18 @@ if not DEBUG:
     ALLOWED_HOSTS=env.list('ALLOWED_HOSTS_DEPLOY')
     CORS_ORIGIN_WITHELIST = env.list('CORS_ORIGIN_WHITELIST_DEPLOY')
     CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS_DEPLOY')
-    CORS_ALLOW_ALL_ORIGINS = True
+     # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
     DATABASES = {
-        'default': env.db("DATABASE_URL"),
+        'default': dj_database_url.config()
     }
     DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
