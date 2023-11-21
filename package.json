@@ -104,7 +104,7 @@
     "tailwindcss": "^3.3.5"
   },
   "engines": {
-  "node": "14.x"
+  "node": "21.2.0"
 }
 
 }
