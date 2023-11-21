@@ -1,40 +1,13 @@
 import { LocationMarkerIcon, StarIcon, ChevronLeftIcon, ChevronRightIcon, PaperAirplaneIcon } from '@heroicons/react/solid';
-import firenze_img from '../../assets/img/firenze-img.png';
-import osaka_img from '../../assets/img/osaka-img.png';
-import london_img from '../../assets/img/london-img.png';
 import { useState } from 'react';
 
-const VacationPlan = () => {
+export default function VacationPlan({vacationPlans}) {
+
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 3;
 
-    const posts = [
-        {
-            title: 'Rome',
-            imageUrl: firenze_img,
-            country: 'Italy',
-            price: '5,42',
-            days: '10',
-            rate: '4.8',
-        },
-        {
-            title: 'London',
-            imageUrl: london_img,
-            country: 'UK',
-            price: '2,42',
-            days: '07',
-            rate: '4.7',
-        },
-        {
-            title: 'Osaka',
-            imageUrl: osaka_img,
-            country: 'Japan',
-            price: '5,42',
-            days: '10',
-            rate: '4.8',
-        },
-    ];
-
+    const posts = vacationPlans|| [];
+    
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
@@ -92,7 +65,7 @@ const VacationPlan = () => {
                         >
                             <img
                                 className='h-48 w-full object-cover'
-                                src={post.imageUrl}
+                                src={post.image_url}
                                 alt=""
                             />
                             <div className="flex-1 p-4">
@@ -125,4 +98,3 @@ const VacationPlan = () => {
     );
 }
 
-export default VacationPlan;

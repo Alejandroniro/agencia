@@ -1,27 +1,13 @@
 import { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import DOMPurify from 'dompurify'
 
-import firenze_img from '../../assets/img/firenze-img.png';
-import london_img from '../../assets/img/london-img.png';
+export default function AboutUs({abouts}) {
 
-const AboutUs = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 1;
 
-    const posts = [
-        {
-            name: 'Mike taylor',
-            imageUrl: firenze_img,
-            from: 'Lahore, Pakistan',
-            comment: 'On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.'
-        },
-        {
-            name: 'Chris Thomas',
-            imageUrl: london_img,
-            from: 'CEO of Red Buttom',
-            comment: 'l',
-        },
-    ];
+    const posts = abouts || [];
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -78,23 +64,21 @@ const AboutUs = () => {
                             className="flex flex-col overflow-hidden rounded-lg shadow-lg mx-4 my-4 max-w-xs relative"
                         >
                             <img
-                                className='h-12 w-12 object-cover rounded-full flex self-start'
-                                src={post.imageUrl}
+                                className='h-12 w-12 object-cover rounded-full flex self-start absolute top-0 left-0'
+                                src={post.image_url}
                                 alt=""
                             />
                             <div className="flex-1 p-4">
-                                <div className="flex justify-between items-start mb-6 ">
-                                    <p className="text-sm font-semibold text-gray-900">
-                                        "{post.comment}"
-                                    </p>
+                                <div className="flex justify-between items-start mb-6 mt-12">
+                                    <p dangerouslySetInnerHTML={{__html: `"${DOMPurify.sanitize(post.comment)}"`}} className="text-sm font-semibold text-gray-900"/>
                                 </div>
                             </div>
-                            <div className="flex flex-col items-start">
+                            <div className="flex flex-col items-start ml-4 mb-4">
                                 <p className="text-sm font-semibold text-gray-900">
                                     {post.name}
                                 </p>
                                 <p className="text-sm font-semibold text-gray-400">
-                                    {post.from}
+                                    {post.location}
                                 </p>
                             </div>
                         </div>
@@ -104,5 +88,3 @@ const AboutUs = () => {
         </div>
     );
 }
-
-export default AboutUs;

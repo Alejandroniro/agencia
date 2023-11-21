@@ -1,12 +1,7 @@
 import { LocationMarkerIcon, StarIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
-import madrid_img from '../../assets/img/madrid-img.png';
-import firenze_img from '../../assets/img/firenze-img.png';
-import paris_img from '../../assets/img/paris-img.png';
-import london_img from '../../assets/img/london-img.png';
+import { useState } from 'react';
 
-import { useState, useEffect } from 'react';
-
-const DealSection = () => {
+export default function DealSections({dealSections}) {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 4;
@@ -19,68 +14,7 @@ const DealSection = () => {
         setHoveredIndex(null);
     };
 
-    const posts = [
-        {
-            title: 'Madrid',
-            imageUrl: madrid_img,
-            country: 'Spain',
-            price: '950',
-            discount: '850',
-            rate: '4.8',
-        },
-        {
-            title: 'Firenze',
-            imageUrl: firenze_img,
-            country: 'Italy',
-            price: '850',
-            discount: '750',
-            rate: '4.5',
-        },
-        {
-            title: 'Paris',
-            imageUrl: paris_img,
-            country: 'France',
-            price: '699',
-            discount: '599',
-            rate: '4.4',
-        },
-        {
-            title: 'London',
-            imageUrl: london_img,
-            country: 'UK',
-            price: '850',
-            discount: '850',
-            rate: '4.8',
-        }, {
-            title: 'London1',
-            imageUrl: london_img,
-            country: 'UK',
-            price: '850',
-            discount: '850',
-            rate: '4.8',
-        }, {
-            title: 'London2',
-            imageUrl: london_img,
-            country: 'UK',
-            price: '850',
-            discount: '850',
-            rate: '4.8',
-        }, {
-            title: 'London3',
-            imageUrl: london_img,
-            country: 'UK',
-            price: '850',
-            discount: '850',
-            rate: '4.8',
-        }, {
-            title: 'London4',
-            imageUrl: london_img,
-            country: 'UK',
-            price: '850',
-            discount: '850',
-            rate: '4.8',
-        },
-    ];
+     const posts = dealSections || [];
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -123,7 +57,7 @@ const DealSection = () => {
                             <img
                                 className={`h-48 w-full object-cover ${hoveredIndex === index ? 'opacity-50' : 'opacity-100'
                                     }`}
-                                src={post.imageUrl}
+                                src={post.image_url}
                                 alt=""
                             />
                             {hoveredIndex === index && (
@@ -187,5 +121,3 @@ const DealSection = () => {
         </div>
     );
 };
-
-export default DealSection;

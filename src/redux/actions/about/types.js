@@ -1,0 +1,2 @@
+export const GET_ABOUTS_SUCCES = 'GET_ABOUTS_SUCCES';
+export const GET_ABOUTS_FAIL = 'GET_ABOUTS_FAIL';

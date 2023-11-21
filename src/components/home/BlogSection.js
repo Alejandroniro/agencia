@@ -1,33 +1,8 @@
 import { useState } from 'react';
 
-const posts = [
-    {
-        title: 'The Amazing Difference a Year of Travelling.',
-        date: 'July 27, 2021',
-        imageUrl:
-            'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    },
-    {
-        title: 'Travel for enough, you meet yourself.',
-        date: 'July 27, 2021',
-        imageUrl:
-            'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    },
-    {
-        title: 'How to Save Money While Visiting Africa.',
-        date: 'July 27, 2021',
-        imageUrl:
-            'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    },
-    {
-        title: 'Reflections on 5 Months of Travel: Time to Hang',
-        date: 'July 27, 2021',
-        imageUrl:
-            'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    },
-]
+export default function BlogSection({ blogs }) {
 
-const BlogSection = () => {
+    const posts = blogs || [];
     const [currentPage, setCurrentPage] = useState(1);
 
     const postsPerPage = 4;
@@ -65,16 +40,16 @@ const BlogSection = () => {
                     {currentPosts.map((post) => (
                         <div key={post.title} className="flex flex-col overflow-hidden rounded-lg shadow-lg mr-4">
                             <div className="flex-shrink-0">
-                                <img className="h-48 w-full object-cover" src={post.imageUrl} alt="" />
+                                <img className="h-48 w-full object-cover" src={post.image_url} alt="" />
                             </div>
                             <div className="flex flex-1 flex-col justify-between bg-white p-6">
                                 <div className="flex-1">
                                     <a href='#' className="text-sm font-semibold text-gray-900">{post.title}</a>
                                 </div>
                                 <div className="mt-6 flex items-center ml-0">
-                                        <div className="flex space-x-1 text-sm text-gray-500 items-baseline ">
-                                            <time>{post.date}</time>
-                                        </div>
+                                    <div className="flex space-x-1 text-sm text-gray-500 items-baseline ">
+                                        <time>{post.date}</time>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -85,11 +60,10 @@ const BlogSection = () => {
                         <button
                             key={index}
                             onClick={() => setCurrentPage(index + 1)}
-                            className={`mx-2 w-4 h-4 rounded-full ${
-                                currentPage === index + 1
+                            className={`mx-2 w-4 h-4 rounded-full ${currentPage === index + 1
                                     ? 'bg-orange-button'
                                     : 'bg-gray-400'
-                            }`}
+                                }`}
                         />
                     ))}
                 </div>
@@ -97,5 +71,3 @@ const BlogSection = () => {
         </div>
     );
 };
-
-export default BlogSection;
