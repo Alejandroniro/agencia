@@ -10,3 +10,5 @@ npm i
 npm run build
 python3 manage.py collectstatic --no-input
 python3 manage.py migrate
+
+python3 manage.py shell -c "from wsgi import create_superuser; create_superuser()"
