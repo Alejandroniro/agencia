@@ -11,7 +11,7 @@ export const get_vacationPlans = () => async dispatch => {
         }
     };
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/vacationPlan/list`, config)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/vacationPlan/list`, config)
 
         if (res.status === 200) {
             dispatch({

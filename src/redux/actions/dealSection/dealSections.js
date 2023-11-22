@@ -11,7 +11,7 @@ export const get_dealSections = () => async dispatch => {
         }
     };
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/dealSection/list`, config)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/dealSection/list`, config)
 
         if (res.status === 200) {
             dispatch({

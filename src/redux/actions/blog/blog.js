@@ -11,7 +11,7 @@ export const get_blogs = () => async dispatch => {
         }
     };
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blog/list`, config)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/blog/list`, config)
 
         if (res.status === 200) {
             dispatch({

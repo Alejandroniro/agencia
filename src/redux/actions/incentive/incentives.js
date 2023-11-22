@@ -11,7 +11,7 @@ export const get_incentives = () => async dispatch => {
         }
     };
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/incentive/list`, config)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/incentive/list`, config)
 
         if (res.status === 200) {
             dispatch({

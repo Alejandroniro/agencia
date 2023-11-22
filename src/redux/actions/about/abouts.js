@@ -11,7 +11,7 @@ export const get_abouts = () => async dispatch => {
         }
     };
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/about/list`, config)
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/about/list`, config)
 
         if (res.status === 200) {
             dispatch({
