@@ -25,12 +25,7 @@ media
 
 # Distribution / packaging
 .Python
-<<<<<<< HEAD
 # build/
-=======
-static/
-build/
->>>>>>> 96c212d (actualizacion de gitignore)
 develop-eggs/
 dist/
 downloads/
