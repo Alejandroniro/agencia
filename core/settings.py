@@ -170,7 +170,11 @@ REST_FRAMEWORK = {
 }
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST  = env.list("CORS_ORIGIN_WHITELIST_DEV")
+CORS_ORIGIN_WHITELIST  = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://localhost:8080',
+]
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS_DEV")
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
