@@ -54,7 +54,7 @@ CKEDITOR_CONFIGS = {
         "autoParagraph": True,
     }
 }
-CKEDITOR_UPLOAD_PATH = ""
+CKEDITOR_UPLOAD_PATH = "/media/"
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
