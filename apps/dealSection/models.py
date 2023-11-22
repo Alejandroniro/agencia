@@ -10,7 +10,7 @@ class DealSection(models.Model):
         verbose_name_plural = 'dealSections'
 
     title = models.CharField(max_length=255, unique=True)
-    image_url = models.ImageField(upload_to=DealSection_directory)
+    image_url = models.ImageField(upload_to=DealSection_directory,max_length=1000)
     country = models.CharField(max_length=255)
     price = models.IntegerField(default=0)
     discount = models.IntegerField(default=0)

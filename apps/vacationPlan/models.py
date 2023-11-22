@@ -11,7 +11,7 @@ class VacationPlan(models.Model):
         verbose_name_plural = "vacationPlans"
 
     title =         models.CharField(max_length=255)
-    image_url =     models.ImageField(upload_to=vacationPlan_directory)
+    image_url =     models.ImageField(upload_to=vacationPlan_directory,max_length=1000)
     country =       models.CharField(max_length=255)
     price =         models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     days =          models.DecimalField(max_digits=5, decimal_places=2, default=0.00)

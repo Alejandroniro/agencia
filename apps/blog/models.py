@@ -13,7 +13,7 @@ class Blog(models.Model):
 
     title = models.CharField(max_length=255)
     date = models.DateField(default=timezone.now, editable=False)
-    image_url = models.ImageField(upload_to=Blog_directory)
+    image_url = models.ImageField(upload_to=Blog_directory,max_length=1000)
 
 
     def __str__(self):

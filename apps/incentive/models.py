@@ -12,7 +12,7 @@ class Incentive(models.Model):
         verbose_name_plural = 'incentives'
 
     name = models.CharField(max_length=255)
-    image_url = models.ImageField(upload_to=Incentive_directory)
+    image_url = models.ImageField(upload_to=Incentive_directory,max_length=1000)
     description = RichTextField()
 
     def __str__(self):

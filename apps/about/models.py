@@ -13,7 +13,7 @@ class About(models.Model):
         verbose_name_plural = 'abouts'
 
     name = models.CharField(max_length=255)
-    image_url = models.ImageField(upload_to=About_directory)
+    image_url = models.ImageField(upload_to=About_directory,max_length=1000)
     comment = RichTextField()
     location = models.CharField(max_length=255, default='')
 
