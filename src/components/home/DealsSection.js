@@ -63,12 +63,11 @@ export default function DealSections({dealSections}) {
                             {hoveredIndex === index && (
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <div className="h-48 absolute inset-0 bg-black opacity-50"></div>
-                                    <a
-                                        href="#"
+                                    <div
                                         className="relative inline-flex items-center rounded-md border border-transparent bg-orange-button text-white mx-auto px-4 py-2 text-base font-medium hover:bg-orange-button focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-button"
                                     >
                                         Book Now
-                                    </a>
+                                    </div>
                                 </div>
                             )}
                             <div className="flex-1 p-4">

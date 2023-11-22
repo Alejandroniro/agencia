@@ -35,7 +35,7 @@ function Home({
         get_dealSections();
         get_incentives();
         get_vacationPlans();
-    },[])
+    },[get_abouts,get_blogs,get_dealSections,get_incentives,get_vacationPlans,])
 
     return(
         <Layout>

@@ -1,4 +1,4 @@
-import { LocationMarkerIcon, StarIcon, ChevronLeftIcon, ChevronRightIcon, PaperAirplaneIcon } from '@heroicons/react/solid';
+import { StarIcon, ChevronLeftIcon, ChevronRightIcon, PaperAirplaneIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 
 export default function VacationPlan({vacationPlans}) {

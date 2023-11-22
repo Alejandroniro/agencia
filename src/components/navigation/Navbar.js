@@ -9,6 +9,7 @@ function Navbar() {
         <Link to='/' className='flex-shrink-0'>
           <img
             src={logo_trabook}
+            alt='logo trakbook'
             width={100}
             height={90}
             className='text-lg font-medium leading-6 text-gray-900'

@@ -13,18 +13,6 @@ export default function BlogSection({ blogs }) {
 
     const totalPages = Math.ceil(posts.length / postsPerPage);
 
-    const nextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
-    const prevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
-
     return (
         <div className="max-w-4xl relative bg-gray-50 pt-16 pb-20">
             <div className="absolute inset-0">
@@ -44,7 +32,7 @@ export default function BlogSection({ blogs }) {
                             </div>
                             <div className="flex flex-1 flex-col justify-between bg-white p-6">
                                 <div className="flex-1">
-                                    <a href='#' className="text-sm font-semibold text-gray-900">{post.title}</a>
+                                    <div className="text-sm font-semibold text-gray-900">{post.title}</div>
                                 </div>
                                 <div className="mt-6 flex items-center ml-0">
                                     <div className="flex space-x-1 text-sm text-gray-500 items-baseline ">
