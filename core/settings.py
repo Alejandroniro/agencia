@@ -54,7 +54,7 @@ CKEDITOR_CONFIGS = {
         "autoParagraph": True,
     }
 }
-CKEDITOR_UPLOAD_PATH = "/media/"
+CKEDITOR_UPLOAD_PATH = ""
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -92,13 +92,13 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
+DATABASES = {
 
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
 #    'default': dj_database_url.config(
 #         # Feel free to alter this value to suit your needs.
 #         default='postgresql://postgres:postgres@localhost:5432/mysite',
