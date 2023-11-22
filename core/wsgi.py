@@ -30,3 +30,7 @@ def create_superuser():
 
 # Llama a la función para crear el superusuario al iniciar el servidor.
 create_superuser()
+
+
+from django.core.management import call_command
+call_command('runserver', '0.0.0.0:8000')
