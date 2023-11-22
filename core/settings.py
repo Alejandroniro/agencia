@@ -19,7 +19,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS_DEV")
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -92,12 +92,12 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+# DATABASES = {
 
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
 
 #    'default': dj_database_url.config(
 #         # Feel free to alter this value to suit your needs.
@@ -105,17 +105,17 @@ DATABASES = {
 #         conn_max_age=600
 #         )
 
-}
+# }
 
 # DATABASES = {"default": dj_database_url.config()}
 
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         # Feel free to alter this value to suit your needs.
-#         default="postgresql://postgres:postgres@localhost:5432/mysite",
-#         conn_max_age=600,
-#     )
-# }
+DATABASES = {
+    "default": dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default="postgresql://postgres:postgres@localhost:5432/mysite",
+        conn_max_age=600,
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -150,14 +150,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -170,7 +169,7 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ORIGIN_WITHELIST = env.list("CORS_ORIGIN_WHITELIST_DEV")
+CORS_ORIGIN_WHITELIST  = env.list("CORS_ORIGIN_WHITELIST_DEV")
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS_DEV")
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -186,10 +185,10 @@ if not DEBUG:
     # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DATABASES = {
-    'default': dj_database_url.config(
-    default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#     default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+#     )
+# }
 
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
