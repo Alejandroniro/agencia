@@ -11,7 +11,8 @@ npm run build
 python3 manage.py collectstatic --no-input
 python3 manage.py migrate
 
-if [[ $CREATE_SUPERUSER ]];
-then
-  python3 manage.py createsuperuser --no-input
-fi
+python manage.py createsuperuserwithpassword \
+        --username admin \
+        --password admin \
+        --email admin@example.org \
+        --preserve

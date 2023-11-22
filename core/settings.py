@@ -41,6 +41,7 @@ PROJECT_APPS = [
     "apps.header",
     "apps.vacationPlan",
     "apps.incentive",
+    "django_createsuperuserwithpassword",
 ]
 
 THIRD_PARTY_APPS = ["corsheaders", "rest_framework", "ckeditor", "ckeditor_uploader"]
