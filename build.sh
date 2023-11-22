@@ -8,5 +8,5 @@ pip install -r requirements.txt
 
 npm i
 npm run build
-python manage.py collectstatic --no-input
-python manage.py migrate
+python3 manage.py collectstatic --no-input
+python3 manage.py migrate
