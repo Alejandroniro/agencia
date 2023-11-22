@@ -31,6 +31,7 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_createsuperuserwithpassword",
 ]
 
 PROJECT_APPS = [
@@ -41,7 +42,6 @@ PROJECT_APPS = [
     "apps.header",
     "apps.vacationPlan",
     "apps.incentive",
-    "django_createsuperuserwithpassword",
 ]
 
 THIRD_PARTY_APPS = ["corsheaders", "rest_framework", "ckeditor", "ckeditor_uploader"]
