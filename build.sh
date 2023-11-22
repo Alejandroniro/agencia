@@ -10,9 +10,3 @@ npm i
 npm run build
 python3 manage.py collectstatic --no-input
 python3 manage.py migrate
-
-python manage.py createsuperuserwithpassword \
-        --username admin \
-        --password admin \
-        --email admin@example.org \
-        --preserve
